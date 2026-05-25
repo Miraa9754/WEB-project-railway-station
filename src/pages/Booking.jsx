@@ -89,12 +89,27 @@ function Booking() {
         ← Назад до списку потягів
       </Link>
 
-      <section className="booking-header">
+     <section className="booking-header">
         <h1>Бронювання квитка</h1>
+
         <p>
-          Потяг № {train.number}: {train.from} → {train.to}
+            <strong>Потяг № {train.number}:</strong> {train.from} → {train.to}
         </p>
-      </section>
+
+        <div className="booking-details">
+            <p>
+            <strong>Дата відправлення:</strong> {train.departureDate}
+            </p>
+
+            <p>
+            <strong>Час відправлення:</strong> {train.departureTime}
+            </p>
+
+    <p>
+      <strong>Тривалість поїздки:</strong> {train.duration}
+    </p>
+  </div>
+</section>
 
       <WagonSelector
         wagons={wagons}

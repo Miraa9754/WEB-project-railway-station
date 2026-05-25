@@ -34,17 +34,18 @@ body {
   margin-bottom: 30px;
 }
 
-.search-section input {
+.search-section input,
+.booking-form input {
   width: 100%;
   padding: 14px 18px;
   border: 1px solid #cbd5e1;
   border-radius: 12px;
   font-size: 16px;
   outline: none;
-  transition: 0.3s;
 }
 
-.search-section input:focus {
+.search-section input:focus,
+.booking-form input:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
@@ -55,11 +56,19 @@ body {
   gap: 20px;
 }
 
-.train-card {
+.train-card,
+.booking-header,
+.wagon-selector,
+.seat-section,
+.booking-form {
   background: white;
   border-radius: 18px;
-  padding: 20px;
+  padding: 24px;
+  margin-bottom: 24px;
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.train-card {
   transition: 0.3s;
 }
 
@@ -81,7 +90,7 @@ body {
 
 .train-badge {
   background: #dbeafe;
-  color: #651dd8;
+  color: #1d4ed8;
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 14px;
@@ -97,7 +106,9 @@ body {
   margin: 8px 0;
 }
 
-.book-button {
+.book-button,
+.booking-form button {
+  display: block;
   width: 100%;
   margin-top: 18px;
   padding: 12px;
@@ -106,23 +117,26 @@ body {
   background: #2563eb;
   color: white;
   font-size: 16px;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.book-button:hover {
+.book-button:hover,
+.booking-form button:hover {
   background: #1d4ed8;
+}
+
+.booking-form button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
 }
 
 .empty-message {
   text-align: center;
   font-size: 18px;
   color: #64748b;
-}
-.book-button {
-  display: block;
-  text-align: center;
-  text-decoration: none;
 }
 
 .back-link {
@@ -133,22 +147,18 @@ body {
   font-weight: bold;
 }
 
-.booking-header {
-  background: white;
-  padding: 24px;
-  border-radius: 18px;
-  margin-bottom: 24px;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+.booking-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 14px;
 }
 
-.wagon-selector,
-.seat-section,
-.booking-form {
-  background: white;
-  padding: 24px;
-  border-radius: 18px;
-  margin-bottom: 24px;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+.booking-details p {
+  background: #f1f5f9;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 0;
 }
 
 .wagon-buttons {
@@ -196,299 +206,19 @@ body {
   margin-right: 6px;
 }
 
-.legend.free {
-  background: #22c55e;
-}
-
-.legend.selected {
-  background: #2563eb;
-}
-
-.legend.booked {
-  background: #ef4444;
-}
-
-.seat-map {
-  display: grid;
-  grid-template-columns: repeat(6, 48px);
-  gap: 12px;
-}
-
-.seat {
-  width: 48px;
-  height: 48px;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
+.legend.free,
 .free-seat {
   background: #22c55e;
 }
 
+.legend.selected,
 .selected-seat {
   background: #2563eb;
 }
 
+.legend.booked,
 .booked-seat {
   background: #ef4444;
-  cursor: not-allowed;
-}
-
-.booking-form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.booking-form input {
-  padding: 14px;
-  border: 1px solid #cbd5e1;
-  border-radius: 12px;
-  font-size: 16px;
-}
-
-.booking-form button {
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  background: #2563eb;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.booking-form button:disabled {
-  background: #94a3b8;
-  cursor: not-allowed;
-}
-
-@media (max-width: 500px) {
-  .seat-map {
-    grid-template-columns: repeat(4, 48px);
-  }
-}
-.wagon-schema {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 24px;
-  border: 3px solid #334155;
-  border-radius: 36px;
-  background: #f8fafc;
-}
-
-.wagon-title {
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #334155;
-}
-
-.wagon-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  margin-bottom: 14px;
-}
-
-.seat-pair {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-}
-
-.side-seats {
-  margin-top: 28px;
-  padding-top: 18px;
-  border-top: 3px dashed #94a3b8;
-}
-
-.side-seats p {
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: #475569;
-}
-
-.side-seat-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
-
-@media (max-width: 600px) {
-  .wagon-row {
-    gap: 20px;
-  }
-
-  .wagon-schema {
-    padding: 16px;
-  }
-}
-.wagon-schema-new {
-  display: grid;
-  grid-template-columns: 90px 1fr 90px;
-  gap: 0;
-  border: 3px solid #1d4ed8;
-  border-radius: 28px;
-  overflow: hidden;
-  background: #f8fafc;
-  margin-top: 20px;
-}
-
-.tambour {
-  background: #f1f5f9;
-  border-right: 2px solid #cbd5e1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.tambour:last-child {
-  border-right: none;
-  border-left: 2px solid #cbd5e1;
-}
-
-.wc-icon {
-  font-size: 26px;
-  margin-bottom: 8px;
-}
-
-.tambour p {
-  margin: 0;
-  color: #475569;
-  font-size: 14px;
-}
-
-.wagon-main {
-  padding: 20px;
-}
-
-.wagon-main h3 {
-  text-align: center;
-  margin: 0 0 16px;
-  color: #0f172a;
-}
-
-.main-seats {
-  border-bottom: 2px dashed #94a3b8;
-  padding-bottom: 24px;
-}
-
-.seat-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.side-seats-new {
-  margin-top: 24px;
-}
-
-.side-seat-block {
-  background: white;
-  border: 1px solid #cbd5e1;
-  border-radius: 16px;
-  padding: 16px;
-  max-width: max-content;
-  margin: 0 auto;
-}
-
-.seat {
-  width: 42px;
-  height: 42px;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.free-seat {
-  background: #22c55e;
-}
-
-.selected-seat {
-  background: #2563eb;
-}
-
-.booked-seat {
-  background: #ef4444;
-  cursor: not-allowed;
-}
-
-@media (max-width: 900px) {
-  .wagon-schema-new {
-    grid-template-columns: 1fr;
-  }
-
-  .tambour {
-    padding: 14px;
-    border-right: none;
-    border-bottom: 2px solid #cbd5e1;
-  }
-
-  .tambour:last-child {
-    border-left: none;
-    border-top: 2px solid #cbd5e1;
-  }
-
-  .seat-row {
-    flex-wrap: wrap;
-  }
-}
-.coupe-wagon,
-.platzkart-main,
-.lux-wagon {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.coupe-block {
-  border: 2px solid #cbd5e1;
-  border-radius: 16px;
-  padding: 14px;
-  background: #f8fafc;
-}
-
-.coupe-top,
-.coupe-bottom {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.platzkart-wrapper {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
-}
-
-.side-seats-column {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-top: 10px;
-}
-
-.side-seat-pair {
-  display: flex;
-  gap: 10px;
-}
-
-.lux-block {
-  display: flex;
-  gap: 14px;
-  border: 2px solid #cbd5e1;
-  border-radius: 16px;
-  padding: 20px;
-  background: #f8fafc;
 }
 
 .seat {
@@ -501,23 +231,39 @@ body {
   cursor: pointer;
 }
 
-.free-seat {
-  background: #22c55e;
-}
-
-.selected-seat {
-  background: #2563eb;
-}
-
 .booked-seat {
-  background: #ef4444;
+  cursor: not-allowed;
 }
+
+.coupe-wagon,
+.lux-wagon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.coupe-block,
+.lux-block {
+  border: 2px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 14px;
+  background: #f8fafc;
+}
+
+.coupe-top,
+.coupe-bottom,
+.lux-block {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
 .platzkart-horizontal {
   overflow-x: auto;
   padding: 18px;
   border: 2px solid #cbd5e1;
   border-radius: 18px;
-  background: #ffffff;
+  background: white;
 }
 
 .platzkart-main-horizontal,
@@ -538,4 +284,22 @@ body {
   border-top: 2px dashed #cbd5e1;
   border-bottom: 2px dashed #cbd5e1;
   margin: 18px 0;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .seat {
+    width: 40px;
+    height: 40px;
+  }
+
+  .coupe-wagon,
+  .lux-wagon {
+    gap: 12px;
+  }
 }
