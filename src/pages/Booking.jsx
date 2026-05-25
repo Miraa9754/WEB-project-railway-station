@@ -9,12 +9,22 @@ import BookingForm from "../components/BookingForm";
 import { getBookedSeats, saveBooking } from "../services/BookingService";
 
 const wagons = [
-  { id: 1, type: "Купе" },
-  { id: 2, type: "Плацкарт" },
-  { id: 3, type: "Люкс" },
+  {
+    id: 1,
+    type: "Купе",
+    seats: 36,
+  },
+  {
+    id: 2,
+    type: "Плацкарт",
+    seats: 54,
+  },
+  {
+    id: 3,
+    type: "Люкс",
+    seats: 18,
+  },
 ];
-
-const seats = Array.from({ length: 36 }, (_, index) => index + 1);
 
 function Booking() {
   const { trainId } = useParams();
@@ -23,6 +33,10 @@ function Booking() {
 
   const [selectedWagon, setSelectedWagon] = useState(1);
   const [selectedSeats, setSelectedSeats] = useState([]);
+
+  const currentWagon = wagons.find(
+    (wagon) => wagon.id === selectedWagon
+  );
 
   if (!train) {
     return (
@@ -89,7 +103,7 @@ function Booking() {
       />
 
       <SeatMap
-        seats={seats}
+        wagonType={currentWagon.type}
         bookedSeats={bookedSeats}
         selectedSeats={selectedSeats}
         onToggleSeat={handleToggleSeat}

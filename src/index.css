@@ -270,3 +270,272 @@ body {
     grid-template-columns: repeat(4, 48px);
   }
 }
+.wagon-schema {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px;
+  border: 3px solid #334155;
+  border-radius: 36px;
+  background: #f8fafc;
+}
+
+.wagon-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #334155;
+}
+
+.wagon-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-bottom: 14px;
+}
+
+.seat-pair {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.side-seats {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 3px dashed #94a3b8;
+}
+
+.side-seats p {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #475569;
+}
+
+.side-seat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .wagon-row {
+    gap: 20px;
+  }
+
+  .wagon-schema {
+    padding: 16px;
+  }
+}
+.wagon-schema-new {
+  display: grid;
+  grid-template-columns: 90px 1fr 90px;
+  gap: 0;
+  border: 3px solid #1d4ed8;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #f8fafc;
+  margin-top: 20px;
+}
+
+.tambour {
+  background: #f1f5f9;
+  border-right: 2px solid #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tambour:last-child {
+  border-right: none;
+  border-left: 2px solid #cbd5e1;
+}
+
+.wc-icon {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.tambour p {
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+}
+
+.wagon-main {
+  padding: 20px;
+}
+
+.wagon-main h3 {
+  text-align: center;
+  margin: 0 0 16px;
+  color: #0f172a;
+}
+
+.main-seats {
+  border-bottom: 2px dashed #94a3b8;
+  padding-bottom: 24px;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.side-seats-new {
+  margin-top: 24px;
+}
+
+.side-seat-block {
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 16px;
+  max-width: max-content;
+  margin: 0 auto;
+}
+
+.seat {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.free-seat {
+  background: #22c55e;
+}
+
+.selected-seat {
+  background: #2563eb;
+}
+
+.booked-seat {
+  background: #ef4444;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .wagon-schema-new {
+    grid-template-columns: 1fr;
+  }
+
+  .tambour {
+    padding: 14px;
+    border-right: none;
+    border-bottom: 2px solid #cbd5e1;
+  }
+
+  .tambour:last-child {
+    border-left: none;
+    border-top: 2px solid #cbd5e1;
+  }
+
+  .seat-row {
+    flex-wrap: wrap;
+  }
+}
+.coupe-wagon,
+.platzkart-main,
+.lux-wagon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.coupe-block {
+  border: 2px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 14px;
+  background: #f8fafc;
+}
+
+.coupe-top,
+.coupe-bottom {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.platzkart-wrapper {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.side-seats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 10px;
+}
+
+.side-seat-pair {
+  display: flex;
+  gap: 10px;
+}
+
+.lux-block {
+  display: flex;
+  gap: 14px;
+  border: 2px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 20px;
+  background: #f8fafc;
+}
+
+.seat {
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.free-seat {
+  background: #22c55e;
+}
+
+.selected-seat {
+  background: #2563eb;
+}
+
+.booked-seat {
+  background: #ef4444;
+}
+.platzkart-horizontal {
+  overflow-x: auto;
+  padding: 18px;
+  border: 2px solid #cbd5e1;
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.platzkart-main-horizontal,
+.platzkart-side-horizontal {
+  min-width: 900px;
+}
+
+.platzkart-row {
+  display: grid;
+  grid-template-columns: repeat(18, 42px);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.platzkart-corridor {
+  height: 34px;
+  min-width: 900px;
+  border-top: 2px dashed #cbd5e1;
+  border-bottom: 2px dashed #cbd5e1;
+  margin: 18px 0;
+}
