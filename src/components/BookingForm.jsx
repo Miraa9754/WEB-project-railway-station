@@ -1,4 +1,33 @@
+import { toast } from "react-toastify";
+
 function BookingForm({ selectedSeats, onSubmit }) {
+  function handleNameChange(event) {
+    const value = event.target.value;
+
+    if (/^[А-Яа-яІіЇїЄєҐґA-Za-z\s'-]*$/.test(value)) {
+      event.target.value = value;
+    } else {
+      event.target.value = value.replace(
+        /[^А-Яа-яІіЇїЄєҐґA-Za-z\s'-]/g,
+        ""
+      );
+
+      toast.warning("Ім’я може містити тільки букви");
+    }
+  }
+
+  function handlePhoneChange(event) {
+    const value = event.target.value;
+
+    if (/^[0-9+]*$/.test(value)) {
+      event.target.value = value;
+    } else {
+      event.target.value = value.replace(/[^0-9+]/g, "");
+
+      toast.warning("Телефон може містити тільки цифри та знак +");
+    }
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -9,6 +38,16 @@ function BookingForm({ selectedSeats, onSubmit }) {
       phone: formData.get("phone").trim(),
       email: formData.get("email").trim(),
     };
+
+    if (passenger.name.length < 2) {
+      toast.error("Введіть коректне ім’я пасажира");
+      return;
+    }
+
+    if (passenger.phone.length < 10) {
+      toast.error("Введіть коректний номер телефону");
+      return;
+    }
 
     onSubmit(passenger);
 
@@ -24,6 +63,7 @@ function BookingForm({ selectedSeats, onSubmit }) {
         name="name"
         placeholder="Ім’я пасажира"
         required
+        onChange={handleNameChange}
       />
 
       <input
@@ -31,6 +71,7 @@ function BookingForm({ selectedSeats, onSubmit }) {
         name="phone"
         placeholder="Телефон"
         required
+        onChange={handlePhoneChange}
       />
 
       <input
